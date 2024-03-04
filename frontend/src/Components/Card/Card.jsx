@@ -4,7 +4,8 @@ import './card.css'
 function Card(props) {
 
     const { title, overview, rating, img } = props.item;
-    console.log(img);
+
+    const handleModal = props.handleModal;
 
     return (
         <div className="card max-w-lg md:max-w-max bg-cover" style={{ backgroundImage: `url('${img}')` }}>
@@ -16,7 +17,11 @@ function Card(props) {
                 <p className="card-body">
                     {overview}
                 </p>
-                <button id='know-more-btn'>
+                <button
+                    id='know-more-btn'
+                    type='submit'
+                    onClick={(e) => handleModal(e)}
+                >
                     Know More
                 </button>
             </div>
