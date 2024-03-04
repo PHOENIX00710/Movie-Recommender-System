@@ -86,29 +86,35 @@ function Cards() {
     return (
         <>
             {openModal &&
-                <aside
-                    className='w-screen h-screen bg-transparent flex justify-center items-center absolute p-10 z-10'
-                    onClick={handleCloseModal}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0, rotateZ: "-360" }}
+                    animate={{ opacity: 1, scale: 1, rotateZ: "0" }}
+                    transition={{ duration: 1.5 }}
                 >
-                    <div
-                        className='max-w-2xl min-w-lg h-auto flex flex-col gap-6 p-10 relative'
-                        id='modal'
-                        onClick={(e) => e.stopPropagation()}
+                    <aside
+                        className='w-screen h-screen bg-transparent flex justify-center items-center absolute p-10 z-10 overflow-hidden'
+                        onClick={handleCloseModal}
                     >
-                        <LuShieldClose
-                            className='absolute -top-2 -right-2 cursor-pointer z-40'
-                            color='white'
-                            fontSize={"1.6rem"}
-                            onClick={handleCloseModal}
-                        />
-                        <section className='flex justify-between'>
-                            <h1 className='text-3xl'>{modalDetails.title}</h1>
-                            <h4 className='text-xl'>Rating: {modalDetails.rating}</h4>
-                        </section>
-                        {/* <p>{modalDetails.overview}</p> */}
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos magnam provident, a quam amet exercitationem in ad tempora officia consequuntur animi? Quis, a. Nam, soluta eum ex accusamus autem quisquam qui et numquam, expedita accusantium sed. Necessitatibus consequuntur numquam nostrum laudantium. Corrupti, facilis voluptatum. Aspernatur corporis quo repellat voluptas? Officiis!</p>
-                    </div>
-                </aside>
+                        <div
+                            className='max-w-2xl min-w-lg h-auto flex flex-col gap-6 p-10 relative'
+                            id='modal'
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <LuShieldClose
+                                className='absolute -top-2 -right-2 cursor-pointer z-40'
+                                color='white'
+                                fontSize={"1.6rem"}
+                                onClick={handleCloseModal}
+                            />
+                            <section className='flex justify-between'>
+                                <h1 className='text-3xl'>{modalDetails.title}</h1>
+                                <h4 className='text-xl'>Rating: {modalDetails.rating}</h4>
+                            </section>
+                            {/* <p>{modalDetails.overview}</p> */}
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos magnam provident, a quam amet exercitationem in ad tempora officia consequuntur animi? Quis, a. Nam, soluta eum ex accusamus autem quisquam qui et numquam, expedita accusantium sed. Necessitatibus consequuntur numquam nostrum laudantium. Corrupti, facilis voluptatum. Aspernatur corporis quo repellat voluptas? Officiis!</p>
+                        </div>
+                    </aside>
+                </motion.div>
             }
             < div id='container' className={`min-w-screen ${openModal ? "opacity-25" : "opacity-100"} min-h-screen flex flex-col gap-4`} >
                 <section id='search-section' className='p-8 w-full flex justify-around'>
