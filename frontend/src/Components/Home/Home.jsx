@@ -13,26 +13,28 @@ function Home() {
     useEffect(() => {
         let currIndex = 0;
         let expanding = true;
+        let speed = 300;
         const expandContract = setInterval(() => {
             if (expanding) {
-                console.log("Hello",currIndex);
                 currIndex++
                 setVisibleTitle(finalTitle.slice(0, currIndex))
-                if (currIndex === finalTitle.length)
+                if (currIndex === finalTitle.length) {
                     expanding = false;
+                    speed = 300;
+                }
             }
             else {
                 currIndex--;
                 setVisibleTitle(finalTitle.slice(0, currIndex - 1))
-                if (currIndex === 0)
-                    {
-                        expanding=true;
-                        setVisibleTitle('M')
-                    }
+                if (currIndex === 0) {
+                    expanding = true;
+                    setVisibleTitle('M')
+                    speed = 1;
+                }
             }
-        }, 300)
+        }, speed)
         return () => clearInterval(expandContract);
-    },[])
+    }, [])
 
     const navigate = useNavigate()
 

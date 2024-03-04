@@ -4,7 +4,6 @@ import './card.css'
 function Card(props) {
 
     const { title, overview, rating, img } = props.item;
-
     const handleModal = props.handleModal;
 
     return (
@@ -20,7 +19,7 @@ function Card(props) {
                 <button
                     id='know-more-btn'
                     type='submit'
-                    onClick={(e) => handleModal(e)}
+                    onClick={(e) => handleModal(e, props.item.id)}
                 >
                     Know More
                 </button>
