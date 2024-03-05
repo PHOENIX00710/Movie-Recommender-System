@@ -87,9 +87,9 @@ function Cards() {
         <>
             {openModal &&
                 <motion.div
-                    initial={{ opacity: 0, scale: 0, rotateZ: "-360" }}
-                    animate={{ opacity: 1, scale: 1, rotateZ: "0" }}
-                    transition={{ duration: 1.5 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.7 }}
                 >
                     <aside
                         className='w-screen h-screen bg-transparent flex justify-center items-center absolute p-10 z-10 overflow-hidden'
@@ -145,7 +145,7 @@ function Cards() {
                             key={ind}
                             initial={{ rotateY: -180, opacity: 0 }}
                             animate={{ rotateY: 0, opacity: 1 }}
-                            transition={{ delay: ind * 0.5 + 1.0 }}
+                            transition={{ delay: ind * 0.5 + 0.6 }}
                         >
                             <Card
                                 item={item}

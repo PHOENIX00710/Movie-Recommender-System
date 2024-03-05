@@ -29,7 +29,7 @@ function Home() {
                 if (currIndex === 0) {
                     expanding = true;
                     setVisibleTitle('M')
-                    speed = 1;
+                    speed = 0.001;
                 }
             }
         }, speed)
